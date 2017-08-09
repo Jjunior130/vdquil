@@ -13,9 +13,8 @@
   (set-state! :img (load-image "resources/ch3/map.png"))
   (fill 192 0 0))
 
-(defn create-ellipse [location]
-  (let [[abbrev [x y]] location
-        random-value (random-data abbrev)
+(defn create-ellipse [[abbrev [x y] :as location]]
+  (let [random-value (random-data abbrev)
         ;; to produce figure 1, use "radius 9" instead of the following 3 lines
         radius (if (>= random-value 0)
                  (map-range random-value 0 (apply max (map second random-data)) 2 40)
